@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>商品詳細</title>
+</head>
+<body>
+<h1>商品詳細</h1>
+
+<div th:if="${#lists.isEmpty(product)}">
+    商品がありません。
+</div>
+<div th:if="!${#lists.isEmpty(product)}">
+    <div th:text="'id : ' + ${product.id}"></div>
+    <div th:text="'商品名 : ' + ${product.name}"></div>
+    <div th:text="'値段 : ' + ${product.price}"></div>
+</div>
+</body>
+</html>

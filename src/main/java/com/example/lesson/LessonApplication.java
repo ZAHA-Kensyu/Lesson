@@ -14,17 +14,17 @@ public class LessonApplication {
 		SpringApplication.run(LessonApplication.class, args);
 
 		ProductService productService = context.getBean(ProductService.class);
-		var list = productService.findAll();
-		list.stream().forEach(System.out::println);
-
-		var s = productService.findById(1);
-		System.out.println("取得"+s);
-
-		System.out.println("インサート" + productService.insert(new ProdubtRecord(0,"test",20)));
-
-		System.out.println("更新" + productService.update(new ProdubtRecord(1,"test",20)));
-
-		System.out.println("削除" + productService.delete(2));
+//		var list = productService.findAll();
+//		list.stream().forEach(System.out::println);
+//
+//		var s = productService.findById(1);
+//		System.out.println("取得"+s);
+//
+//		System.out.println("インサート" + productService.insert(new ProdubtRecord(0,"test",20)));
+//
+//		System.out.println("更新" + productService.update(new ProdubtRecord(1,"test",20)));
+//
+//		System.out.println("削除" + productService.delete(2));
 	}
 
 }
