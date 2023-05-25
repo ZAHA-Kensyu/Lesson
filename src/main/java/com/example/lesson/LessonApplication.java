@@ -1,6 +1,5 @@
 package com.example.lesson;
 
-import com.example.lesson.Entity.ProdubtRecord;
 import com.example.lesson.Service.ProductService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,11 +1,9 @@
 package com.example.lesson.Service;
 
 import com.example.lesson.Dao.ProductDao;
-import com.example.lesson.Entity.ProdubtRecord;
+import com.example.lesson.Entity.ProductRecord;
 import com.example.lesson.Exception.ProductNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.DataClassRowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,7 +15,7 @@ public class PgProductService implements ProductService{
     ProductDao productDao;
 
     @Override
-    public List<ProdubtRecord> findAll(){
+    public List<ProductRecord> findAll(){
         try{
             return productDao.findAll();
         }catch (Exception e){
@@ -27,7 +25,7 @@ public class PgProductService implements ProductService{
     }
 
     @Override
-    public ProdubtRecord findById(int id) throws ProductNotFoundException {
+    public ProductRecord findById(int id) throws ProductNotFoundException {
         try{
             return productDao.findById(id);
         }catch (ProductNotFoundException e){
@@ -36,9 +34,9 @@ public class PgProductService implements ProductService{
     }
 
     @Override
-    public int insert(ProdubtRecord produbtRecord){
+    public int insert(ProductRecord productRecord){
         try{
-            return productDao.insert(produbtRecord);
+            return productDao.insert(productRecord);
         }catch (Exception e){
             e.printStackTrace();
             return 0;
@@ -46,8 +44,8 @@ public class PgProductService implements ProductService{
     }
 
     @Override
-    public int update(ProdubtRecord produbtRecord){
-            return productDao.update(produbtRecord);
+    public int update(ProductRecord productRecord){
+            return productDao.update(productRecord);
     }
 
     @Override

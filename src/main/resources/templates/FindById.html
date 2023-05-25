@@ -15,5 +15,8 @@
     <div th:text="'商品名 : ' + ${product.name}"></div>
     <div th:text="'値段 : ' + ${product.price}"></div>
 </div>
+<form th:action="@{'/product-delete/' + ${product.id}}" method="POST">
+    <button>削除</button>
+</form>
 </body>
 </html>

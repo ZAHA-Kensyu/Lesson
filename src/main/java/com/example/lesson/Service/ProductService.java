@@ -1,17 +1,17 @@
 package com.example.lesson.Service;
 
-import com.example.lesson.Entity.ProdubtRecord;
+import com.example.lesson.Entity.ProductRecord;
 
 import java.util.List;
 
 public interface ProductService {
-    List<ProdubtRecord> findAll();
+    List<ProductRecord> findAll();
 
-    ProdubtRecord findById(int id);
+    ProductRecord findById(int id);
 
-    int insert(ProdubtRecord produbtRecord);
+    int insert(ProductRecord productRecord);
 
-    int update(ProdubtRecord produbtRecord);
+    int update(ProductRecord productRecord);
 
     int delete(int id);
 }

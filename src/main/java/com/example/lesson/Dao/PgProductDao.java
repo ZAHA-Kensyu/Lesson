@@ -1,6 +1,6 @@
 package com.example.lesson.Dao;
 
-import com.example.lesson.Entity.ProdubtRecord;
+import com.example.lesson.Entity.ProductRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.DataClassRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,32 +18,32 @@ public class PgProductDao implements ProductDao{
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     @Override
-    public List<ProdubtRecord> findAll(){
-        return jdbcTemplate.query("SELECT * FROM products",new DataClassRowMapper<>(ProdubtRecord.class));
+    public List<ProductRecord> findAll(){
+        return jdbcTemplate.query("SELECT * FROM products",new DataClassRowMapper<>(ProductRecord.class));
     }
 
     @Override
-    public ProdubtRecord findById(int id){
+    public ProductRecord findById(int id){
         MapSqlParameterSource param = new MapSqlParameterSource();
         param.addValue("id",id);
-        var list = namedParameterJdbcTemplate.query("SELECT * FROM products WHERE id = :id",param,new DataClassRowMapper<>(ProdubtRecord.class));
+        var list = namedParameterJdbcTemplate.query("SELECT * FROM products WHERE id = :id",param,new DataClassRowMapper<>(ProductRecord.class));
         return list.isEmpty() ? null : list.get(0);
     }
 
     @Override
-    public int insert(ProdubtRecord produbtRecord){
+    public int insert(ProductRecord productRecord){
         MapSqlParameterSource param = new MapSqlParameterSource();
-        param.addValue("name",produbtRecord.name());
-        param.addValue("price",produbtRecord.price());
+        param.addValue("name", productRecord.name());
+        param.addValue("price", productRecord.price());
         return namedParameterJdbcTemplate.update("INSERT INTO products (name , price) VALUES (:name, :price)",param);
     }
 
     @Override
-    public int update(ProdubtRecord produbtRecord){
+    public int update(ProductRecord productRecord){
         MapSqlParameterSource param = new MapSqlParameterSource();
-        param.addValue("id",produbtRecord.id());
-        param.addValue("name",produbtRecord.name());
-        param.addValue("price",produbtRecord.price());
+        param.addValue("id", productRecord.id());
+        param.addValue("name", productRecord.name());
+        param.addValue("price", productRecord.price());
         return namedParameterJdbcTemplate.update("UPDATE products SET name = :name, price = :price WHERE id = :id",param);
     }
 
