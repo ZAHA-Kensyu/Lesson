@@ -2,19 +2,14 @@ package com.example.lesson.Controller;
 
 import com.example.lesson.Entity.ProductRecord;
 import com.example.lesson.Service.PgProductService;
-import com.example.lesson.form.ProductForm;
+import com.example.lesson.form.ProductInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
-import javax.sound.midi.SysexMessage;
 
-@Controller
 public class WebController {
 
     //フィールド
@@ -42,13 +37,13 @@ public class WebController {
     }
 
     @GetMapping("/product-add")
-    public String productAdd(@ModelAttribute("product") ProductForm product){
+    public String productAdd(@ModelAttribute("product") ProductInfo product){
         return "/product-add";
     }
 
     //POSTで流れてきた
     @PostMapping("/product-add")
-    public String productView(@Validated @ModelAttribute("product") ProductForm product ,BindingResult bindingResult) {
+    public String productView(@Validated @ModelAttribute("product") ProductInfo product , BindingResult bindingResult) {
 
         System.out.println("入っているか?");
         if(bindingResult.hasErrors()){
@@ -64,13 +59,13 @@ public class WebController {
     }
 
     @GetMapping("/product/update/{id}")
-    public String getProductUpdate(@PathVariable("id")int id,@ModelAttribute("products") ProductForm product){
+    public String getProductUpdate(@PathVariable("id")int id,@ModelAttribute("products") ProductInfo product){
         product.setId(id);
         return "product-update";
     }
 
     @PostMapping("/product/update/{id}")
-    public String postProductUpdate(@PathVariable("id")int id ,@Validated @ModelAttribute("products") ProductForm product,BindingResult bindingResult){
+    public String postProductUpdate(@PathVariable("id")int id , @Validated @ModelAttribute("products") ProductInfo product, BindingResult bindingResult){
         if(bindingResult.hasErrors()) {
             System.out.println("エラー");
         }else{

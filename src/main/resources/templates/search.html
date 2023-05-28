@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>住所検索</title>
+</head>
+<body>
+<h1>住所検索</h1>
+<form action ="/searchResult">
+  <label>郵便番号を入力してください</label><br>
+  <input type="text" name="postal" />
+  <button>検索</button>
+</form>
+<div th:if="${isResultDisplay}">
+    <p>郵便番号 : [[ ${postalCode} ]]</p>
+    <p>住所 : [[ ${address} ]]</p>
+</div>
+</body>
+</html>

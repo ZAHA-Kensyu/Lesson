@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>住所検索</title>
+</head>
+<body>
+<h1>住所検索</h1>
+<form>
+  <label>郵便番号を入力してください</label><br>
+  <input type="text" name="postalCode" id="postal-code">
+  <button type="button" id="search-btn">検索</button>
+</form>
+<div>
+  <p>郵便局 : <pan id="postal-code-result"></pan></p>
+  <p>住所 : <span id="address-result"></span></p>
+</div>
+<script>
+  'use strict';
+
+  document.getElementById('search-btn').addEventListener('click',()=>{
+    const postalCode = document.getElementById('postal-code').value;
+
+    fetch(`/search-address?postalCode=${postalCode}`)
+      .then(res => {
+        if(res.status === 400) {
+          document.getElementById('postal-code-result').textContent = postalCode;
+          document.getElementById('address-result').textContent = '入力された郵便番号に該当する住所は見つかりませんでした';
+        } else {
+          res.json()
+          .then(data => {
+            document.getElementById('postal-code-result').textContent = data.postalCode;
+            document.getElementById('address-result').textContent = data.address;
+          })
+        }
+    });
+  });
+
+</script>
+
+</body>
+</html>

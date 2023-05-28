@@ -5,7 +5,7 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 @Data
-public class ProductForm {
+public class ProductInfo {
     private int id;
     @NotEmpty() //入力必須
     @Length(min = 1,max = 50)//1文字以上、50文字以下
