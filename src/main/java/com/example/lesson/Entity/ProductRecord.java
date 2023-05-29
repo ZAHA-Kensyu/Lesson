@@ -1,4 +1,4 @@
 package com.example.lesson.Entity;
 
-public record ProductRecord(int id, String name, int price) {
+public record ProductRecord(Integer id, String name, Integer price) {
 }

@@ -51,7 +51,7 @@ public class WebController {
             return "/product-add";
         }else{
             System.out.println("成功");
-            productService.insert(new ProductRecord(0,product.getName(), product.getPrice()));
+            productService.insert(new ProductRecord(null,product.getName(), product.getPrice()));
             //リダイレクトを行いたいときはredirect:を付けないといけない。
             System.out.println("リダイレクト");
             return "redirect:/product-list";

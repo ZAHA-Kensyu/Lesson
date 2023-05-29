@@ -2,17 +2,40 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>商品一覧（テスト）</title>
+    <title >商品一覧（テスト）</title>
     <script src="/javascript/test.js"></script>
+    <link rel="stylesheet" href="/css/test.css">
 </head>
 <body>
-    <h1>テスト通信行います</h1>
-    <div id="product-add">
-    <label>商品名 </label><input type="text" name="productName" id="productNameInput"><br>
-    <labeL>値段 </labeL><input type="text" name="productPrice" id="productPriceInput"><br>
-    <button type="button" id="addButton">追加</button>
+    <h1>商品管理</h1>
+    <div id="product-add" class="add">
+        <div class="productName">
+            <label>商品名 </label><input type="text" name="productName" id="productNameInput"><br>
+        </div>
+        
+        <div class="productPrice">
+        <labeL>値段 </labeL><input type="text" name="productPrice" id="productPriceInput"><br>
+        </div>
+        
+        <button type="button" id="addButton" class="addButton">追加</button>
     </div>
+
     <div id="table-userlist">
+    </div>
+
+    <div id="product-edit">
+        <div class="productId">
+            <label>ID </label><input type="text" name = "editProductId" id="editProductIdInput" disabled><br>
+        </div>
+        <div class="productName">
+        <label>商品名 </label><input type="text" name="editProductName" id="editProductNameInput"><br>
+        </div>
+        <div class="productPrice">
+        <labeL>値段 </labeL><input type="text" name="editProductPrice" id="editProductPriceInput"><br>
+        </div>
+        
+        <button type="button" id="editButton" class="editButton">更新</button>
+        <button type="button" id="deleteButton" class="deleteButton">削除</button>
     </div>
 </body>
 </html>

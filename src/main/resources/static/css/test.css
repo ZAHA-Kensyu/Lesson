@@ -1,0 +1,38 @@
+h1{
+    color:blueviolet;
+}
+
+.add{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.productId{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.productName{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.productPrice{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.addButton{
+    margin-left: 40px;
+}
+
+.editButton{
+    margin-left: 40px;
+}
+
+.deleteButton{
+    margin-left: 20px;
+}
+
+td,th,table{
+    border-collapse: collapse;
+    border: 2px solid;
+}
